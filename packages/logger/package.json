@@ -1,5 +1,5 @@
 {
-  "name": "@lib-cli/logger",
+  "name": "@njt-tools-open/logger",
   "version": "0.1.4",
   "description": "Lib cli logger.",
   "author": "xiaoYown <qzy09101018@sina.com>",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoYown/lib-cli.git"
+    "url": "git+https://github.com/xiaoYown/njt-tools-open.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",

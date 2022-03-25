@@ -1,11 +1,11 @@
-# `@lib-cli/lib-compile`
+# `@njt-tools-open/lib-compile`
 
 > TODO: description
 
 ## Usage
 
 ```
-const libCompiler = require('@lib-cli/lib-compile');
+const libCompiler = require('@njt-tools-open/lib-compile');
 
 // TODO: DEMONSTRATE API
 ```

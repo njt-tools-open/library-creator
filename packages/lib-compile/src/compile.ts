@@ -6,7 +6,7 @@ import { babel } from '@rollup/plugin-babel';
 import rollupTypescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
-import logger from '@lib-cli/logger';
+import logger from '@njt-tools-open/logger';
 import { ENVS } from './constants';
 import { getModules } from './utils';
 

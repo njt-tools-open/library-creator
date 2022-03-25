@@ -1,7 +1,7 @@
 import * as path from 'path';
 import ora from 'ora';
 import inquirer from 'inquirer';
-import logger from '@lib-cli/logger';
+import logger from '@njt-tools-open/logger';
 import {
   branchSingle,
   branchTreeShaking,

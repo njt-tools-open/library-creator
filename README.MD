@@ -1,7 +1,7 @@
 ## Usage
 
 ```sh
-npm install @lib-cli/lib-cli -g
+npm install @njt-tools-open/lib-cli -g
 
 lib-cli create <name>
 cd ./<name>

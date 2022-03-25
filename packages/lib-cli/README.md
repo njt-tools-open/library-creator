@@ -1,4 +1,4 @@
-# @lib-cli/lib-cli
+# @njt-tools-open/lib-cli
 
 Easy to create a library as single or tree-shaking mode.
 
@@ -6,7 +6,7 @@ Easy to create a library as single or tree-shaking mode.
 
 ```sh
 # install global or use npx
-npm install @lib-cli/lib-cli -g
+npm install @njt-tools-open/lib-cli -g
 # create a library template
 lib-cli create my-lib
 
