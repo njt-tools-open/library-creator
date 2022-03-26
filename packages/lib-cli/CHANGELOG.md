@@ -1,5 +1,17 @@
 # @njt-tools-open/lib-cli
 
+## 0.2.0
+
+### Minor Changes
+
+- Replace option tree-shaking as multiple files.
+
+### Patch Changes
+
+- Updated dependencies
+  - @njt-tools-open/lib-compile@0.2.0
+  - @njt-tools-open/logger@0.2.0
+
 ## 0.1.7
 
 ### Patch Changes

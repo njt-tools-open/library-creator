@@ -3,6 +3,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
+    "changelog": "npx changeset version",
     "build": "cd scripts && node bin/build.js",
     "dev": "cd scripts && node bin/dev.js",
     "lint": "npm run lint:es && npm run lint:ts && npm run lint:prettier",

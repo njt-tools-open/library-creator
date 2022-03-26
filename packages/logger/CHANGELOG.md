@@ -1,5 +1,11 @@
 # @njt-tools-open/logger
 
+## 0.2.0
+
+### Minor Changes
+
+- Replace option tree-shaking as multiple files.
+
 ## 0.1.5
 
 ### Patch Changes
