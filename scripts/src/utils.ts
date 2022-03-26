@@ -33,7 +33,7 @@ interface AnswersModel {
   packages: string[];
 }
 
-export function batchExec(script: string) {
+export function batchExec(script: string): void {
   const folder = path.resolve('../packages');
   const packages = getPackages(folder);
   const prompt = inquirer.createPromptModule();

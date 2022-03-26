@@ -1,6 +1,6 @@
 # @njt-tools-open/lib-cli
 
-Easy to create a library as single or tree-shaking mode.
+Easy to create a library as single or multiple mode.
 
 ## Quick Overview
 

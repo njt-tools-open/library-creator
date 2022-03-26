@@ -12,7 +12,7 @@ import { getModules } from './utils';
 
 interface Options {
   env: ENVS;
-  treeShaking: boolean;
+  multiple: boolean;
   sourcemap: boolean;
 }
 
@@ -83,7 +83,7 @@ interface Format {
 }
 
 /** 获取输出任务列表 */
-function getTasks({ dir, treeShaking, sourcemap }) {
+function getTasks({ dir, multiple, sourcemap }) {
   const pkg = getPkg(dir);
   const banner = getBanner(pkg);
 
@@ -104,8 +104,8 @@ function getTasks({ dir, treeShaking, sourcemap }) {
   ];
   // esm 模块输出处理
   if (typeof pkg.module !== 'undefined') {
-    // tree-shaking 目录处理
-    if (treeShaking) {
+    // multiple 目录处理
+    if (multiple) {
       const outputDir = path.join(dir, pkg.module, '..');
       const esmFormat = formats.find(
         ({ format }) => format === 'esm'
@@ -209,13 +209,13 @@ function buildProd(tasks, inputOptions, treeShking) {
 }
 
 function compile(options: Options): void {
-  const { env, treeShaking, sourcemap } = options;
+  const { env, multiple, sourcemap } = options;
   const dir = process.cwd();
   const entry = './src/index.ts';
   const run = env === ENVS.DEVELOPMENT ? buildDev : buildProd;
   const inputOptions = getInputOptions({ dir, entry });
-  const tasks = getTasks({ dir, treeShaking, sourcemap });
-  run(tasks, inputOptions, treeShaking);
+  const tasks = getTasks({ dir, multiple, sourcemap });
+  run(tasks, inputOptions, multiple);
 }
 
 export default compile;

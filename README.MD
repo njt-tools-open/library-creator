@@ -23,5 +23,5 @@ lib-cli build
 
 ```
 -s, --sourcemap
--t, --tree-shaking
+-t, --multiple
 ```

@@ -4,7 +4,7 @@ import inquirer from 'inquirer';
 import logger from '@njt-tools-open/logger';
 import {
   branchSingle,
-  branchTreeShaking,
+  branchMultiple,
   repository,
 } from '../../constants/resources';
 import { CommandArgs } from '../../typing';
@@ -17,8 +17,8 @@ const choices = [
     value: branchSingle,
   },
   {
-    name: 'tree-shaking',
-    value: branchTreeShaking,
+    name: 'multiple',
+    value: branchMultiple,
   },
 ];
 
