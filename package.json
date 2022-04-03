@@ -1,5 +1,4 @@
 {
-  "name": "root",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
@@ -22,8 +21,7 @@
   "lint-staged": {
     "packages/**/*.ts": [
       "npm run lint",
-      "npm run fix",
-      "git add"
+      "npm run fix"
     ]
   },
   "config": {

@@ -4,7 +4,6 @@
   "description": "",
   "main": "deploy.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "tsc",
     "watch": "tsc --watch",
     "p:dev": "node bin/dev.js"
