@@ -5,6 +5,8 @@ import * as rollup from 'rollup';
 import { babel } from '@rollup/plugin-babel';
 import rollupTypescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import dts from 'rollup-plugin-dts';
 import logger from '@njt-tools-open/logger';
 import { ENVS } from './constants';
@@ -27,7 +29,16 @@ const getInputOptions = ({ dir, entry }: { dir: string; entry: string }) => ({
   plugins: [
     babel({ babelHelpers: 'bundled' }),
     rollupTypescript(),
-    nodeResolve(),
+    nodeResolve({
+      preferBuiltins: true,
+      browser: true,
+    }),
+    commonjs({
+      include: ['node_modules/**'],
+    }),
+    json({
+      compact: true,
+    }),
   ],
 });
 
