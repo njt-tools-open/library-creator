@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-compile
 
+## 0.2.1
+
+### Patch Changes
+
+- resolve commonjs library require
+
 ## 0.2.0
 
 ### Minor Changes
