@@ -15,6 +15,7 @@
     "strictPropertyInitialization": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "lib": [
       "esnext"
     ],
