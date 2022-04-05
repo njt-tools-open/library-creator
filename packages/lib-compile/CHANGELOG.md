@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-compile
 
+## 0.2.3
+
+### Patch Changes
+
+- fix declaration
+
 ## 0.2.2
 
 ### Patch Changes

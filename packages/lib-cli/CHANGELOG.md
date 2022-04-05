@@ -1,5 +1,13 @@
 # @njt-tools-open/lib-cli
 
+## 0.2.3
+
+### Patch Changes
+
+- fix declaration
+- Updated dependencies
+  - @njt-tools-open/lib-compile@0.2.3
+
 ## 0.2.2
 
 ### Patch Changes

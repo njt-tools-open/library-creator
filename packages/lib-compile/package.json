@@ -1,6 +1,6 @@
 {
   "name": "@njt-tools-open/lib-compile",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Lib cli compiler.",
   "author": "xiaoYown <qzy09101018@sina.com>",
   "homepage": "https://github.com/xiaoYown/lib-cli#readme",
