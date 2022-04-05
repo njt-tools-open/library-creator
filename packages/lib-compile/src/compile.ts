@@ -7,7 +7,7 @@ import rollupTypescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import dts from 'rollup-plugin-dts';
+// import dts from 'rollup-plugin-dts';
 import logger from '@njt-tools-open/logger';
 import { ENVS } from './constants';
 import { getModules } from './utils';
@@ -23,24 +23,48 @@ interface InputOptions {
   plugins: any[];
 }
 
+/** 读取 package 信息 */
+function getPkg(): Record<string, any> {
+  return JSON.parse(
+    fs.readFileSync(path.resolve('./package.json'), {
+      encoding: 'utf8',
+    })
+  );
+}
+
 /** 获取当前目录 inputOptions */
-const getInputOptions = ({ dir, entry }: { dir: string; entry: string }) => ({
-  input: path.join(dir, entry),
-  plugins: [
-    babel({ babelHelpers: 'bundled' }),
-    rollupTypescript(),
-    nodeResolve({
-      preferBuiltins: true,
-      browser: true,
-    }),
-    commonjs({
-      include: ['node_modules/**'],
-    }),
-    json({
-      compact: true,
-    }),
-  ],
-});
+const getInputOptions = ({ entry }: { entry: string }) => {
+  let compilerOptions = {};
+  const typesFile = getPkg().types;
+  if (typesFile) {
+    console.log('typesFile - ', path.resolve(typesFile, '..'));
+    compilerOptions = {
+      declaration: true,
+      declarationDir: path.resolve(typesFile, '..'),
+    };
+  }
+  return {
+    input: path.resolve(entry),
+    cache: false,
+    plugins: [
+      babel({ babelHelpers: 'bundled' }),
+      rollupTypescript({
+        tsconfig: path.resolve('tsconfig.json'),
+        compilerOptions,
+      }),
+      nodeResolve({
+        preferBuiltins: true,
+        browser: true,
+      }),
+      commonjs({
+        include: ['node_modules/**'],
+      }),
+      json({
+        compact: true,
+      }),
+    ],
+  };
+};
 
 /** 根据输出个数配置 inputOpitons */
 const transformInputPotions = (
@@ -49,23 +73,11 @@ const transformInputPotions = (
   treeShking: boolean
 ) => {
   const newInputOptions = { ...inputOptions };
-  if (format === 'es') {
-    newInputOptions.plugins = [...inputOptions.plugins, dts()];
-  }
   if (format === 'esm' && treeShking) {
     newInputOptions.input = [newInputOptions.input as string, ...getModules()];
   }
   return newInputOptions;
 };
-
-/** 读取 package 信息 */
-function getPkg(dir: string) {
-  return JSON.parse(
-    fs.readFileSync(path.join(dir, './package.json'), {
-      encoding: 'utf8',
-    })
-  );
-}
 
 /** 生成 bannber */
 function getBanner(pkg) {
@@ -94,8 +106,8 @@ interface Format {
 }
 
 /** 获取输出任务列表 */
-function getTasks({ dir, multiple, sourcemap }) {
-  const pkg = getPkg(dir);
+function getTasks({ multiple, sourcemap }) {
+  const pkg = getPkg();
   const banner = getBanner(pkg);
 
   const formats: Format[] = [
@@ -113,21 +125,11 @@ function getTasks({ dir, multiple, sourcemap }) {
       format: 'esm',
     },
   ];
-  // esm 模块输出处理
-  if (typeof pkg.module !== 'undefined') {
-    // multiple 目录处理
-    if (multiple) {
-      const outputDir = path.join(dir, pkg.module, '..');
-      const esmFormat = formats.find(
-        ({ format }) => format === 'esm'
-      ) as Format;
-      esmFormat.dir = outputDir;
-    }
-    // 有 esmodule 输出, 添加描述文件输出
-    formats.push({
-      key: 'types',
-      format: 'es',
-    });
+  // multiple 目录处理
+  if (multiple) {
+    const outputDir = path.resolve(pkg.module, '..');
+    const esmFormat = formats.find(({ format }) => format === 'esm') as Format;
+    esmFormat.dir = outputDir;
   }
   const tasks = formats
     .filter(({ key }) => typeof pkg[key] !== 'undefined')
@@ -135,13 +137,13 @@ function getTasks({ dir, multiple, sourcemap }) {
       if (item.dir) {
         delSync([item.dir]);
       } else {
-        delSync([path.join(dir, pkg[item.key], '..')]);
+        delSync([path.resolve(pkg[item.key], '..')]);
       }
       const outputOptions: rollup.OutputOptions = {
         banner,
         name: item.name,
         dir: item.dir,
-        file: item.dir ? undefined : path.join(dir, pkg[item.key]),
+        file: item.dir ? undefined : path.resolve(pkg[item.key]),
         format: item.format,
         exports: 'auto',
         sourcemap,
@@ -221,11 +223,10 @@ function buildProd(tasks, inputOptions, treeShking) {
 
 function compile(options: Options): void {
   const { env, multiple, sourcemap } = options;
-  const dir = process.cwd();
   const entry = './src/index.ts';
   const run = env === ENVS.DEVELOPMENT ? buildDev : buildProd;
-  const inputOptions = getInputOptions({ dir, entry });
-  const tasks = getTasks({ dir, multiple, sourcemap });
+  const inputOptions = getInputOptions({ entry });
+  const tasks = getTasks({ multiple, sourcemap });
   run(tasks, inputOptions, multiple);
 }
 
