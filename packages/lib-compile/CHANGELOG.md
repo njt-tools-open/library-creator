@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-compile
 
+## 0.2.2
+
+### Patch Changes
+
+- add importHelpers
+
 ## 0.2.1
 
 ### Patch Changes
