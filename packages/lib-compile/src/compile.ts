@@ -7,7 +7,6 @@ import rollupTypescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-// import dts from 'rollup-plugin-dts';
 import logger from '@njt-tools-open/logger';
 import { ENVS } from './constants';
 import { getModules } from './utils';
@@ -37,7 +36,6 @@ const getInputOptions = ({ entry }: { entry: string }) => {
   let compilerOptions = {};
   const typesFile = getPkg().types;
   if (typesFile) {
-    console.log('typesFile - ', path.resolve(typesFile, '..'));
     compilerOptions = {
       declaration: true,
       declarationDir: path.resolve(typesFile, '..'),
@@ -47,17 +45,21 @@ const getInputOptions = ({ entry }: { entry: string }) => {
     input: path.resolve(entry),
     cache: false,
     plugins: [
-      babel({ babelHelpers: 'bundled' }),
-      rollupTypescript({
-        tsconfig: path.resolve('tsconfig.json'),
-        compilerOptions,
-      }),
       nodeResolve({
         preferBuiltins: true,
         browser: true,
       }),
       commonjs({
-        include: ['node_modules/**'],
+        include: ['node_modules/**', '../../node_modules/.pnpm/**'],
+      }),
+      babel({
+        babelHelpers: 'bundled',
+        include: ['**.js', 'node_modules/**', '../../node_modules/.pnpm/**'],
+        presets: ['@babel/preset-env'],
+      }),
+      rollupTypescript({
+        tsconfig: path.resolve('tsconfig.json'),
+        compilerOptions,
       }),
       json({
         compact: true,
