@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-compile
 
+## 0.2.4
+
+### Patch Changes
+
+- support pnpm
+
 ## 0.2.3
 
 ### Patch Changes
