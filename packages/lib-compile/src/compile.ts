@@ -1,13 +1,17 @@
 import path from 'path';
 import fs from 'fs';
-import { sync as delSync } from 'del';
+
 import * as rollup from 'rollup';
-import { babel } from '@rollup/plugin-babel';
 import rollupTypescript from '@rollup/plugin-typescript';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { sync as delSync } from 'del';
+import injectProcessEnv from 'rollup-plugin-inject-process-env';
+
 import logger from '@njt-tools-open/logger';
+
 import { ENVS } from './constants';
 import { getModules } from './utils';
 
@@ -30,6 +34,15 @@ function getPkg(): Record<string, any> {
     })
   );
 }
+/** 获取环境变量 */
+const getEnv = () => {
+  try {
+    const env = require(path.resolve('lib-cli.env'));
+    return env;
+  } catch (error) {
+    return {};
+  }
+};
 
 /** 获取当前目录 inputOptions */
 const getInputOptions = ({ entry }: { entry: string }) => {
@@ -64,6 +77,7 @@ const getInputOptions = ({ entry }: { entry: string }) => {
       json({
         compact: true,
       }),
+      injectProcessEnv(getEnv()),
     ],
   };
 };

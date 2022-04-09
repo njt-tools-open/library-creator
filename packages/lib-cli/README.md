@@ -26,3 +26,12 @@ npm run dev
 ```
 npm run build
 ```
+
+### inject env
+
+```js
+// <project_folder>/lib-cli.env.js
+module.exports = {
+  NODE_ENV: 'development',
+};
+```
