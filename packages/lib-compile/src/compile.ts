@@ -45,43 +45,31 @@ const getEnv = () => {
 };
 
 /** 获取当前目录 inputOptions */
-const getInputOptions = ({ entry }: { entry: string }) => {
-  let compilerOptions = {};
-  const typesFile = getPkg().types;
-  if (typesFile) {
-    compilerOptions = {
-      declaration: true,
-      declarationDir: path.resolve(typesFile, '..'),
-    };
-  }
-  return {
-    input: path.resolve(entry),
-    cache: false,
-    plugins: [
-      nodeResolve({
-        preferBuiltins: true,
-        browser: true,
-      }),
-      commonjs({
-        include: ['node_modules/**', '../../node_modules/.pnpm/**'],
-      }),
-      babel({
-        babelHelpers: 'bundled',
-        include: ['**.js', 'node_modules/**', '../../node_modules/.pnpm/**'],
-        presets: ['@babel/preset-env'],
-      }),
-      rollupTypescript({
-        tsconfig: path.resolve('tsconfig.json'),
-        compilerOptions,
-      }),
-      json({
-        compact: true,
-      }),
-      injectProcessEnv(getEnv()),
-    ],
-  };
-};
-
+const getInputOptions = ({ entry }: { entry: string }) => ({
+  input: path.resolve(entry),
+  cache: false,
+  plugins: [
+    nodeResolve({
+      preferBuiltins: true,
+      browser: true,
+    }),
+    commonjs({
+      include: ['node_modules/**', '../../node_modules/.pnpm/**'],
+    }),
+    babel({
+      babelHelpers: 'bundled',
+      include: ['**.js', 'node_modules/**', '../../node_modules/.pnpm/**'],
+      presets: ['@babel/preset-env'],
+    }),
+    rollupTypescript({
+      tsconfig: path.resolve('tsconfig.json'),
+    }),
+    json({
+      compact: true,
+    }),
+    injectProcessEnv(getEnv()),
+  ],
+});
 /** 根据输出个数配置 inputOpitons */
 const transformInputPotions = (
   format: string,
