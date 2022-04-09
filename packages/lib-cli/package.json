@@ -1,6 +1,6 @@
 {
   "name": "@njt-tools-open/lib-cli",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A lib cli, to quick create a esm, cjs, iife lib.",
   "author": "xiaoYown <qzy09101018@sina.com>",
   "homepage": "https://github.com/xiaoYown/lib-cli#readme",
@@ -31,7 +31,7 @@
     "url": "https://github.com/xiaoYown/lib-cli/issues"
   },
   "dependencies": {
-    "@njt-tools-open/lib-compile": "^0.2.3",
+    "@njt-tools-open/lib-compile": "^0.3.0",
     "@njt-tools-open/logger": "^0.2.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.1",

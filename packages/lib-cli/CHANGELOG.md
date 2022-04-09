@@ -1,5 +1,16 @@
 # @njt-tools-open/lib-cli
 
+## 0.3.0
+
+### Minor Changes
+
+- Add process env inject
+
+### Patch Changes
+
+- Updated dependencies
+  - @njt-tools-open/lib-compile@0.3.0
+
 ## 0.2.3
 
 ### Patch Changes

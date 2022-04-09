@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-compile
 
+## 0.3.0
+
+### Minor Changes
+
+- Add process env inject
+
 ## 0.2.4
 
 ### Patch Changes
