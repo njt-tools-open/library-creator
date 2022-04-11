@@ -1,9 +1,18 @@
 {
   "name": "@njt-tools-open/lib-cli",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A lib cli, to quick create a esm, cjs, iife lib.",
+  "keywords": [
+    "lib-cli",
+    "cli",
+    "esmodule",
+    "commonjs",
+    "bundle",
+    "javascript library",
+    "builder"
+  ],
   "author": "xiaoYown <qzy09101018@sina.com>",
-  "homepage": "https://github.com/xiaoYown/lib-cli#readme",
+  "homepage": "https://github.com/njt-tools-open/library-creator#readme",
   "license": "ISC",
   "bin": {
     "lib-cli": "bin/main.js"
@@ -20,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoYown/njt-tools-open.git"
+    "url": "git+https://github.com/njt-tools-open/library-creator.git"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -28,11 +37,11 @@
     "build": "npx rimraf bin && tsc"
   },
   "bugs": {
-    "url": "https://github.com/xiaoYown/lib-cli/issues"
+    "url": "https://github.com/njt-tools-open/library-creator/issues"
   },
   "dependencies": {
-    "@njt-tools-open/lib-compile": "^0.3.1",
-    "@njt-tools-open/logger": "^0.2.0",
+    "@njt-tools-open/lib-compile": "^0.3.2",
+    "@njt-tools-open/logger": "^0.2.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.1",
     "@typescript-eslint/eslint-plugin": "^4.30.0",

@@ -1,5 +1,13 @@
 # @njt-tools-open/lib-compile
 
+## 0.3.2
+
+### Patch Changes
+
+- remove registry link
+- Updated dependencies
+  - @njt-tools-open/logger@0.2.1
+
 ## 0.3.1
 
 ### Patch Changes

@@ -1,9 +1,9 @@
 {
   "name": "@njt-tools-open/logger",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lib cli logger.",
   "author": "xiaoYown <qzy09101018@sina.com>",
-  "homepage": "https://github.com/xiaoYown/lib-cli#readme",
+  "homepage": "https://github.com/njt-tools-open/library-creator#readme",
   "license": "ISC",
   "main": "lib/main.js",
   "directories": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoYown/njt-tools-open.git"
+    "url": "git+https://github.com/njt-tools-open/library-creator.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
@@ -27,7 +27,7 @@
     "build": "npx rimraf lib && tsc"
   },
   "bugs": {
-    "url": "https://github.com/xiaoYown/lib-cli/issues"
+    "url": "https://github.com/njt-tools-open/library-creator/issues"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",

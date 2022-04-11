@@ -1,9 +1,9 @@
 {
   "name": "@njt-tools-open/lib-compile",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Lib cli compiler.",
   "author": "xiaoYown <qzy09101018@sina.com>",
-  "homepage": "https://github.com/xiaoYown/lib-cli#readme",
+  "homepage": "https://github.com/njt-tools-open/library-creator#readme",
   "license": "ISC",
   "main": "lib/main.js",
   "directories": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoYown/njt-tools-open.git"
+    "url": "git+https://github.com/njt-tools-open/library-creator.git"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -26,7 +26,7 @@
     "build": "npx rimraf lib && tsc"
   },
   "bugs": {
-    "url": "https://github.com/xiaoYown/lib-cli/issues"
+    "url": "https://github.com/njt-tools-open/library-creator/issues"
   },
   "devDependencies": {
     "@types/jest": "27.0.2",
@@ -44,7 +44,7 @@
   "dependencies": {
     "@babel/core": "7.15.8",
     "@babel/preset-env": "^7.16.11",
-    "@njt-tools-open/logger": "0.2.0",
+    "@njt-tools-open/logger": "0.2.1",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-json": "4.1.0",

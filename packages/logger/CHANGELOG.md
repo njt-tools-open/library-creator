@@ -1,5 +1,11 @@
 # @njt-tools-open/logger
 
+## 0.2.1
+
+### Patch Changes
+
+- remove registry link
+
 ## 0.2.0
 
 ### Minor Changes
