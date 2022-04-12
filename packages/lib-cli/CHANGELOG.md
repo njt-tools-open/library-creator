@@ -1,5 +1,17 @@
 # @njt-tools-open/lib-cli
 
+## 0.3.4
+
+### Patch Changes
+
+- Update readme
+
+## 0.3.3
+
+### Patch Changes
+
+- Add badge
+
 ## 0.3.2
 
 ### Patch Changes

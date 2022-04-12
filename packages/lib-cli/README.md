@@ -1,5 +1,21 @@
 # @njt-tools-open/lib-cli
 
+<br>
+
+<a title="lib-cli Downloads">
+  <img src="https://img.shields.io/npm/dm/%40njt-tools-open%2Flib-cli" alt="Downloads per Month"/>
+</a>
+
+<a title="lib-cli Downloads">
+  <img src="https://img.shields.io/npm/dy/%40njt-tools-open%2Flib-cli" alt="Downloads per Year"/>
+</a>
+
+<a href="https://badge.fury.io/js/%40njt-tools-open%2Flib-cli" title="NPM Version Badge">
+   <img src="https://img.shields.io/npm/v/%40njt-tools-open%2Flib-cli.svg?sanitize=true" alt="version">
+</a>
+
+<br>
+
 Easy to create a library as single or multiple mode.
 
 ## Quick Overview
