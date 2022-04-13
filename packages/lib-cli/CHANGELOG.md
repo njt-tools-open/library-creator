@@ -1,5 +1,11 @@
 # @njt-tools-open/lib-cli
 
+## 0.3.5
+
+### Patch Changes
+
+- Update template use
+
 ## 0.3.4
 
 ### Patch Changes

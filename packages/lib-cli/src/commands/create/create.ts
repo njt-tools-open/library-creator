@@ -3,8 +3,8 @@ import ora from 'ora';
 import inquirer from 'inquirer';
 import logger from '@njt-tools-open/logger';
 import {
-  branchSingle,
-  branchMultiple,
+  branchTemplatesingle,
+  branchTemplateComplete,
   repository,
 } from '../../constants/resources';
 import { CommandArgs } from '../../typing';
@@ -13,12 +13,12 @@ const download = require('download-git-repo');
 
 const choices = [
   {
-    name: 'single',
-    value: branchSingle,
+    name: 'single template',
+    value: branchTemplatesingle,
   },
   {
-    name: 'multiple',
-    value: branchMultiple,
+    name: 'complete tempalte',
+    value: branchTemplateComplete,
   },
 ];
 
